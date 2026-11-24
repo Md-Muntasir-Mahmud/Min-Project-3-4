@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive product explorer powered by the DummyJSON API." />
+  <title>NOVA — Product Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="NOVA home"><span class="brand-mark">N</span> NOVA<span class="brand-dot">.</span></a>
+    <div class="topbar-note"><span class="live-dot"></span> LIVE PRODUCT DATA</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">DISCOVER SOMETHING GOOD</p>
+        <h1>Find your next<br><span>favourite thing.</span></h1>
+        <p class="hero-description">Explore a handpicked feed of products. Search, sort, and save the ones you love.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-shape shape-one"></div><div class="hero-shape shape-two"></div>
+        <div class="hero-sticker">GOOD<br>FINDS<br>ONLY ↗</div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Product controls">
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search products..." autocomplete="off" />
+        <button id="clearSearch" class="clear-search" aria-label="Clear search" hidden>×</button>
+      </div>
+      <label class="select-wrap">
+        <span class="sr-only">Filter by category</span>
+        <select id="categorySelect"><option value="all">All categories</option></select>
+      </label>
+      <label class="select-wrap sort-select">
+        <span class="sr-only">Sort products</span>
+        <select id="sortSelect">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+          <option value="rating">Top rated</option>
+          <option value="title">Name: A–Z</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="results-heading">
+      <div>
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2 id="sectionTitle">Explore products <span id="productCount" class="count-pill">0</span></h2>
+      </div>
+      <button id="favoritesToggle" class="favorites-toggle" aria-pressed="false">
+        <span aria-hidden="true">♡</span> Saved <span id="savedCount">0</span>
+      </button>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite">
+      <div class="spinner"></div><p>Getting the good stuff...</p>
+    </div>
+    <section id="productGrid" class="product-grid" aria-label="Products"></section>
+    <div id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon">⌕</div>
+      <h3>No products found</h3>
+      <p>Try another search or change your filters.</p>
+      <button id="resetFilters" class="button button-dark">Reset filters</button>
+    </div>
+    <div id="errorState" class="error-state" hidden>
+      <div class="empty-icon">!</div>
+      <h3>Could not load products</h3>
+      <p>Check your internet connection and try again.</p>
+      <button id="retryButton" class="button button-dark">Try again</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 NOVA PRODUCT EXPLORER</span>
+    <span>POWERED BY <a href="https://dummyjson.com/" target="_blank" rel="noreferrer">DUMMYJSON API</a></span>
+  </footer>
+</body>
+</html>
